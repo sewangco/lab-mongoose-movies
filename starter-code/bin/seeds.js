@@ -24,9 +24,10 @@ const celebrities = [
   },
 ];
 
-Celebrity.create(celebrities)
+Celebrity.insertMany(celebrities)
   .then((data) => {
     console.log(`Success! Added ${data.length} to the database`);
+    mongoose.connection.close();
   })
   .catch((err) => {
     console.log(err);
